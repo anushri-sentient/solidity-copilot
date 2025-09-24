@@ -1,0 +1,4 @@
+# Firework GPT OSS 120B API Configuration
+FIREWORKS_API_KEY=your_firework_api_key_here
+FIREWORKS_BASE_URL=https://api.fireworks.ai/inference/v1
+_FIREWORKS_DEDICATED_GPT_OSS_120B_MODEL_NAME=accounts/sentientfoundation/loadBalancers/gpt-oss-120b
