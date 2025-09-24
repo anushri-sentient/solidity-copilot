@@ -500,109 +500,88 @@ def main():
         
         st.markdown("---")
     
+    # Default question buttons
+    st.markdown("#### 🚀 Quick Start - Common Contract Types")
+    
+    # Create two rows of buttons
+    col_btn1, col_btn2, col_btn3 = st.columns(3)
+    
+    with col_btn1:
+        if st.button("📋 Registry Contract", help="Create a Registry Style contract for managing Artifacts"):
+            prompt = "Create a Registry Style contract for managing Artifacts"
+            st.session_state.messages.append({"role": "user", "content": prompt})
+            display_chat_message("user", prompt)
+            with st.spinner("🤔 Thinking..."):
+                response = copilot.get_response(prompt, st.session_state.use_two_call, st.session_state.use_three_call)
+                st.session_state.messages.append({"role": "assistant", "content": response})
+                display_chat_message("assistant", response)
+            st.rerun()
+        
+        if st.button("🏦 Vault Contract", help="Create a Vault Contract"):
+            prompt = "Create a Vault Contract"
+            st.session_state.messages.append({"role": "user", "content": prompt})
+            display_chat_message("user", prompt)
+            with st.spinner("🤔 Thinking..."):
+                response = copilot.get_response(prompt, st.session_state.use_two_call, st.session_state.use_three_call)
+                st.session_state.messages.append({"role": "assistant", "content": response})
+                display_chat_message("assistant", response)
+            st.rerun()
+    
+    with col_btn2:
+        if st.button("💰 Staking Contract", help="Create a Staking Contract with yield"):
+            prompt = "Create a Staking Contract with yield"
+            st.session_state.messages.append({"role": "user", "content": prompt})
+            display_chat_message("user", prompt)
+            with st.spinner("🤔 Thinking..."):
+                response = copilot.get_response(prompt, st.session_state.use_two_call, st.session_state.use_three_call)
+                st.session_state.messages.append({"role": "assistant", "content": response})
+                display_chat_message("assistant", response)
+            st.rerun()
+        
+        if st.button("🏪 Marketplace", help="Create a Marketplace Contract for trading NFTs/tokens"):
+            prompt = "Create a Marketplace Contract to allow buying, selling, and trading of in-game assets (NFTs or tokens)"
+            st.session_state.messages.append({"role": "user", "content": prompt})
+            display_chat_message("user", prompt)
+            with st.spinner("🤔 Thinking..."):
+                response = copilot.get_response(prompt, st.session_state.use_two_call, st.session_state.use_three_call)
+                st.session_state.messages.append({"role": "assistant", "content": response})
+                display_chat_message("assistant", response)
+            st.rerun()
+    
+    with col_btn3:
+        if st.button("🔒 Escrow Contract", help="Create an Escrow/Prize Pool Contract"):
+            prompt = "Create a Escrow / Prize Pool Contracts to hold funds for tournaments, wagers, or bets until game outcomes are verified"
+            st.session_state.messages.append({"role": "user", "content": prompt})
+            display_chat_message("user", prompt)
+            with st.spinner("🤔 Thinking..."):
+                response = copilot.get_response(prompt, st.session_state.use_two_call, st.session_state.use_three_call)
+                st.session_state.messages.append({"role": "assistant", "content": response})
+                display_chat_message("assistant", response)
+            st.rerun()
+        
+        if st.button("🎁 Rewards Contract", help="Create a Reward Distribution Contract"):
+            prompt = "Create Reward Distribution Contracts for play-to-earn reward payouts"
+            st.session_state.messages.append({"role": "user", "content": prompt})
+            display_chat_message("user", prompt)
+            with st.spinner("🤔 Thinking..."):
+                response = copilot.get_response(prompt, st.session_state.use_two_call, st.session_state.use_three_call)
+                st.session_state.messages.append({"role": "assistant", "content": response})
+                display_chat_message("assistant", response)
+            st.rerun()
+    
+    st.markdown("---")
+    
     # Main chat interface
     col1, col2 = st.columns([3, 1])
     
     with col1:
         st.markdown("### 💬 Chat")
         
-        # Default question buttons
-        st.markdown("#### 🚀 Quick Start - Common Contract Types")
-        
-        # Create two rows of buttons
-        col_btn1, col_btn2, col_btn3 = st.columns(3)
-        
-        with col_btn1:
-            if st.button("📋 Registry Contract", help="Create a Registry Style contract for managing Artifacts"):
-                prompt = "Create a Registry Style contract for managing Artifacts"
-                st.session_state.messages.append({"role": "user", "content": prompt})
-                display_chat_message("user", prompt)
-                with st.spinner("🤔 Thinking..."):
-                    response = copilot.get_response(prompt, st.session_state.use_two_call, st.session_state.use_three_call)
-                    st.session_state.messages.append({"role": "assistant", "content": response})
-                    display_chat_message("assistant", response)
-                st.rerun()
-            
-            if st.button("🏦 Vault Contract", help="Create a Vault Contract"):
-                prompt = "Create a Vault Contract"
-                st.session_state.messages.append({"role": "user", "content": prompt})
-                display_chat_message("user", prompt)
-                with st.spinner("🤔 Thinking..."):
-                    response = copilot.get_response(prompt, st.session_state.use_two_call, st.session_state.use_three_call)
-                    st.session_state.messages.append({"role": "assistant", "content": response})
-                    display_chat_message("assistant", response)
-                st.rerun()
-        
-        with col_btn2:
-            if st.button("💰 Staking Contract", help="Create a Staking Contract with yield"):
-                prompt = "Create a Staking Contract with yield"
-                st.session_state.messages.append({"role": "user", "content": prompt})
-                display_chat_message("user", prompt)
-                with st.spinner("🤔 Thinking..."):
-                    response = copilot.get_response(prompt, st.session_state.use_two_call, st.session_state.use_three_call)
-                    st.session_state.messages.append({"role": "assistant", "content": response})
-                    display_chat_message("assistant", response)
-                st.rerun()
-            
-            if st.button("🏪 Marketplace", help="Create a Marketplace Contract for trading NFTs/tokens"):
-                prompt = "Create a Marketplace Contract to allow buying, selling, and trading of in-game assets (NFTs or tokens)"
-                st.session_state.messages.append({"role": "user", "content": prompt})
-                display_chat_message("user", prompt)
-                with st.spinner("🤔 Thinking..."):
-                    response = copilot.get_response(prompt, st.session_state.use_two_call, st.session_state.use_three_call)
-                    st.session_state.messages.append({"role": "assistant", "content": response})
-                    display_chat_message("assistant", response)
-                st.rerun()
-        
-        with col_btn3:
-            if st.button("🔒 Escrow Contract", help="Create an Escrow/Prize Pool Contract"):
-                prompt = "Create a Escrow / Prize Pool Contracts to hold funds for tournaments, wagers, or bets until game outcomes are verified"
-                st.session_state.messages.append({"role": "user", "content": prompt})
-                display_chat_message("user", prompt)
-                with st.spinner("🤔 Thinking..."):
-                    response = copilot.get_response(prompt, st.session_state.use_two_call, st.session_state.use_three_call)
-                    st.session_state.messages.append({"role": "assistant", "content": response})
-                    display_chat_message("assistant", response)
-                st.rerun()
-            
-            if st.button("🎁 Rewards Contract", help="Create a Reward Distribution Contract"):
-                prompt = "Create Reward Distribution Contracts for play-to-earn reward payouts"
-                st.session_state.messages.append({"role": "user", "content": prompt})
-                display_chat_message("user", prompt)
-                with st.spinner("🤔 Thinking..."):
-                    response = copilot.get_response(prompt, st.session_state.use_two_call, st.session_state.use_three_call)
-                    st.session_state.messages.append({"role": "assistant", "content": response})
-                    display_chat_message("assistant", response)
-                st.rerun()
-        
-        st.markdown("---")
-        
         # Expert mode is always active
         
         # Display chat history
         for message in st.session_state.messages:
             display_chat_message(message["role"], message["content"])
-        
-        # Chat input
-        if prompt := st.chat_input("Ask me anything about Solidity development..."):
-            logger.info(f"💬 User input received: {prompt[:100]}...")
-            
-            # Add user message to chat
-            st.session_state.messages.append({"role": "user", "content": prompt})
-            display_chat_message("user", prompt)
-            logger.info("📝 User message added to chat history")
-            
-            # Get and display assistant response
-            logger.info("🤔 Processing user request...")
-            with st.spinner("🤔 Thinking..."):
-                response = copilot.get_response(
-                    prompt, 
-                    st.session_state.use_two_call,
-                    st.session_state.use_three_call
-                )
-                st.session_state.messages.append({"role": "assistant", "content": response})
-                display_chat_message("assistant", response)
-                logger.info(f"✅ Response generated and displayed - Length: {len(response)} characters")
     
     with col2:
         st.markdown("### 📊 Session Info")
@@ -619,6 +598,27 @@ def main():
             
             for topic in topics:
                 st.markdown(f"• {topic}")
+    
+    # Chat input - MUST be outside any columns/containers
+    if prompt := st.chat_input("Ask me anything about Solidity development..."):
+        logger.info(f"💬 User input received: {prompt[:100]}...")
+        
+        # Add user message to chat
+        st.session_state.messages.append({"role": "user", "content": prompt})
+        display_chat_message("user", prompt)
+        logger.info("📝 User message added to chat history")
+        
+        # Get and display assistant response
+        logger.info("🤔 Processing user request...")
+        with st.spinner("🤔 Thinking..."):
+            response = copilot.get_response(
+                prompt, 
+                st.session_state.use_two_call,
+                st.session_state.use_three_call
+            )
+            st.session_state.messages.append({"role": "assistant", "content": response})
+            display_chat_message("assistant", response)
+            logger.info(f"✅ Response generated and displayed - Length: {len(response)} characters")
 
 if __name__ == "__main__":
     main()
